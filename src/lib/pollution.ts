@@ -19,6 +19,12 @@ export async function loadPollutionData(): Promise<PollutionRow[]> {
   return parseCSV(text);
 }
 
+export async function loadPollutionHistoryData(): Promise<PollutionRow[]> {
+  const res = await fetch("/pollution_tunisie_historique.csv");
+  const text = await res.text();
+  return parseCSV(text);
+}
+
 export function parseCSV(text: string): PollutionRow[] {
   const lines = text.trim().split("\n");
   const headers = lines[0].split(",");

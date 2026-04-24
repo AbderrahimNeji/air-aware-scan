@@ -1,13 +1,12 @@
 {
-  "name": "AirTunisie — Qualité de l'air",
-  "short_name": "AirTunisie",
+  "name": "Nafas Scan - Qualite de l'air",
+  "short_name": "NafasScan",
   "description": "Statistiques de pollution atmosphérique en Tunisie",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f0f9ff",
   "theme_color": "#1d8fd6",
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
 }
