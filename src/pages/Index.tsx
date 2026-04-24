@@ -265,7 +265,7 @@ const StatCard = ({
   icon, label, value, sub, accent,
 }: { icon: React.ReactNode; label: string; value: string; sub: string; accent?: "danger" | "success" }) => (
   <div className="min-h-40 rounded-2xl border border-border bg-card p-5 shadow-glacier">
-    <div className="flex items-center gap-2 text-xs font-medium tracking-wide text-muted-foreground">
+    <div className="mt-4 flex items-center gap-2 text-xs font-medium tracking-wide text-muted-foreground">
       {icon}
       {label}
     </div>

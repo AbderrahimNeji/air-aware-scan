@@ -4,24 +4,13 @@ import { useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-const isLocalHost = (hostname: string) => {
-  const host = hostname.toLowerCase();
-  return host === "localhost" || host === "127.0.0.1" || host === "::1";
-};
+const PUBLIC_APP_URL = "https://air-aware-app.vercel.app/";
 
 export const QrShare = () => {
   const [open, setOpen] = useState(false);
 
   const shareUrl = useMemo(() => {
-    if (typeof window === "undefined") return "";
-    const envUrl = import.meta.env.VITE_PUBLIC_APP_URL?.trim();
-    if (envUrl) return envUrl;
-    return window.location.origin;
-  }, []);
-
-  const currentHostLocal = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return isLocalHost(window.location.hostname);
+    return PUBLIC_APP_URL;
   }, []);
 
   return (
@@ -39,12 +28,7 @@ export const QrShare = () => {
           <div className="w-full space-y-2 text-center">
             <div className="text-sm font-medium">URL detectee automatiquement</div>
             <p className="break-all text-xs text-muted-foreground">{shareUrl}</p>
-            {currentHostLocal && (
-              <p className="text-xs text-amber-700">
-                En mode local, les autres appareils ne pourront pas ouvrir l'app avec ce QR. Lancez l'app avec
-                une adresse reseau ou une URL publique pour un acces universel.
-              </p>
-            )}
+            <p className="text-xs text-emerald-700">Lien public actif, accessible sur tous les appareils.</p>
           </div>
 
           <div className="rounded-2xl bg-white p-4 shadow-glacier">
